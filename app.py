@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello World'
+    return 'Hello World again!'
 
 
 # Just an exampel of handling HTTP POST request
