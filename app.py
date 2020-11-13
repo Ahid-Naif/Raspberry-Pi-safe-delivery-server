@@ -8,14 +8,13 @@ def index():
     return 'Hello World again!'
 
 
-# Just an exampel of handling HTTP POST request
-# @app.route('/buzzer_off', methods = ['POST'])
-# def buzzerOFF():
-#     data = request.get_json()
-#     data = data['buzzerStatus']
-#     buzzer_off(data)
+@app.route('/open_lock', methods = ['POST'])
+def openLock():
+    data = request.get_json()
+    # data = data['lockStatus']
+    # buzzer_off(data)
 
-#     return "buzzer is turned off"
+    return "Lock is ON"
 
 if __name__ == '__main__':
     app.run(debug=True, port=80)
