@@ -13,15 +13,14 @@ while True:
     
     print('readSerial:')
     print(readQR)
-    print(type(readQR))
-    if readQR == '':
+    if readQR == str.encode(''):
         print('No readings')
         GPIO.output(lock, GPIO.LOW) # lock off
     else:
         code = requests.get('https://hsbr-burger.com/checkBoxCode')
         print('response:')
         print(code.text)
-        if unicode(readQR) == unicode(code.text):
+        if readQR[0:6] == str.encode(code.text):
             print("True Code")
             GPIO.output(lock, GPIO.HIGH) # lock off
         else:
