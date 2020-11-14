@@ -9,7 +9,8 @@ GPIO.setup(18, GPIO.OUT, initial=GPIO.HIGH) # GPIO Assign mode
 
 while True:
     isBoxOpen = requests.get('https://hsbr-burger.com/isBoxOpen')
-    if isBoxOpen == True:
+    print(isBoxOpen.text)
+    if isBoxOpen.text == True:
         GPIO.output(18, GPIO.HIGH) # lock on
         time.sleep(5)
     else:
