@@ -15,3 +15,4 @@ while True:
         time.sleep(1)
     else:
         print("Wrong Code")
+    time.sleep(3)
