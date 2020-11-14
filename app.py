@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False) 
 GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering
-GPIO.setup(18, GPIO.OUT, initial=GPIO.HIGH) # GPIO Assign mode
+GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW) # GPIO Assign mode
 
 ser = serial.Serial(port='/dev/ttyS0', baudrate=9600, timeout=1)
 while True:

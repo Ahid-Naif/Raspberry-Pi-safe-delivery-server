@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False) 
 GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering
-GPIO.setup(18, GPIO.OUT, initial=GPIO.HIGH) # GPIO Assign mode
+GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW) # GPIO Assign mode
 
 while True:
     isBoxOpen = requests.get('https://hsbr-burger.com/isBoxOpen')
