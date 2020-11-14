@@ -1,6 +1,11 @@
 import serial, string
 import time
 import requests
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM) # GPIO Numbers instead of board numbers
+lock = 23
+GPIO.setup(lock, GPIO.OUT) # GPIO Assign mode
 
 ser = serial.Serial(port='/dev/ttyS0', baudrate=9600, timeout=1)
 while True:
@@ -10,12 +15,15 @@ while True:
     print(readQR[0:6])
     if readQR == str.encode(''):
         print('No readings')
+        GPIO.output(lock, GPIO.LOW) # lock off
     else:
         code = requests.get('https://hsbr-burger.com/checkBoxCode')
         print('response:')
         print(code.text)
         if readQR[0:6] == str.encode(code.text):
             print("True Code")
+            GPIO.output(lock, GPIO.HIGH) # lock off
         else:
             print("Wrong Code")
+            GPIO.output(lock, GPIO.LOW) # lock off
         time.sleep(1)
