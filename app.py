@@ -13,6 +13,7 @@ while True:
         readQR = ser.readline()
     except Exception:
         print('Exception ERROR 1')
+        return
     else:
         print('readSerial:')
         print(readQR)
