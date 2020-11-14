@@ -15,7 +15,7 @@ while True:
         code = requests.get('https://hsbr-burger.com/checkBoxCode')
         print('response:')
         print(code.text)
-        if readQR == str.encode(code):
+        if readQR == str.encode(code.text):
             print("True Code")
         else:
             print("Wrong Code")
