@@ -2,7 +2,7 @@ import serial, string
 import time
 import requests
 
-ser = serial.Serial(port='/dev/ttyS0', baudrate=9600, timeout=1)
+ser = serial.Serial(port='/dev/ttyS0', baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=None, rtscts='N')
 while True:
     readQR = ser.readline()
     
