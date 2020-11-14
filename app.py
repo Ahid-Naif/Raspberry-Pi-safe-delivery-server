@@ -12,7 +12,7 @@ while True:
     readQR = ser.readline()
     
     print('readSerial:')
-    print(readQR[0:6])
+    print(readQR)
     if readQR == str.encode(''):
         print('No readings')
         GPIO.output(lock, GPIO.LOW) # lock off
