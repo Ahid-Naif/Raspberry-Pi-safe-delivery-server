@@ -23,6 +23,7 @@ while True:
         if readQR[0:6] == str.encode(code.text):
             print("True Code")
             GPIO.output(18, GPIO.HIGH) # lock on
+            time.sleep(5)
         else:
             print("Wrong Code")
             GPIO.output(18, GPIO.LOW) # lock off
