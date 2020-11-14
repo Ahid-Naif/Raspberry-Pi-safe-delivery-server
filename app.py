@@ -8,16 +8,15 @@ while True:
     
     print('readSerial:')
     print(readQR)
-    print(type(readQR))
     print(readQR[0:6])
-    # if readQR == '':
-    #     print('No readings')
-    # else:
-    #     time.sleep(1)
-    #     code = requests.get('https://hsbr-burger.com/checkBoxCode')
-    #     print('response:')
-    #     print(code.text)
-    #     if readQR == code:
-    #         print("True Code")
-    #     else:
-    #         print("Wrong Code")
+    if readQR == str.encode(''):
+        print('No readings')
+    else:
+        code = requests.get('https://hsbr-burger.com/checkBoxCode')
+        print('response:')
+        print(code.text)
+        if readQR == str.encode(code):
+            print("True Code")
+        else:
+            print("Wrong Code")
+        time.sleep(1)
