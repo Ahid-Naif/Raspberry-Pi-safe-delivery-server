@@ -20,7 +20,7 @@ while True:
         code = requests.get('https://hsbr-burger.com/checkBoxCode')
         print('response:')
         print(code.text)
-        if readQR == code.text:
+        if unicode(readQR) == unicode(code.text):
             print("True Code")
             GPIO.output(lock, GPIO.HIGH) # lock off
         else:
