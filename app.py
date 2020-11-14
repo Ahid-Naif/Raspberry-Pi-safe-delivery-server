@@ -13,6 +13,7 @@ while True:
     
     print('readSerial:')
     print(readQR)
+    print(type(readQR))
     if readQR == '':
         print('No readings')
         GPIO.output(lock, GPIO.LOW) # lock off
