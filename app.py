@@ -3,9 +3,10 @@ import time
 import requests
 import RPi.GPIO as GPIO
 
-GPIO.setmode(GPIO.BCM) # GPIO Numbers instead of board numbers
-lock = 23
-GPIO.setup(lock, GPIO.OUT) # GPIO Assign mode
+GPIO.setwarnings(False) 
+GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering
+lock = 16
+GPIO.setup(lock, GPIO.OUT, initial=GPIO.LOW) # GPIO Assign mode
 
 ser = serial.Serial(port='/dev/ttyS0', baudrate=9600, timeout=1)
 while True:
