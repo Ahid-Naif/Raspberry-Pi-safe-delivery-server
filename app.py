@@ -5,14 +5,14 @@ import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False) 
 GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering
-GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW) # GPIO Assign mode
+GPIO.setup(18, GPIO.OUT) # GPIO Assign mode
 
 ser = serial.Serial(port='/dev/ttyS0', baudrate=9600, timeout=1)
 while True:
     GPIO.output(18, GPIO.LOW) # lock off
     time.sleep(3)
-    GPIO.output(18, GPIO.HIGH) # lock on
-    time.sleep(3)
+    # GPIO.output(18, GPIO.HIGH) # lock on
+    # time.sleep(3)
 # while True:
 #     readQR = ser.readline()
     
