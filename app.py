@@ -8,9 +8,10 @@ while True:
     
     print('readSerial:')
     print(readQR)
-    # if readQR == '':
-    #     print('No readings')
-    # else:
+    if readQR == '':
+        print('No readings')
+    else:
+        time.sleep(1)
     #     code = requests.get('https://hsbr-burger.com/checkBoxCode')
     #     print('response:')
     #     print(code.text)
