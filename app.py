@@ -15,7 +15,6 @@ while True:
     print(readQR)
     if readQR == str.encode(''):
         print('No readings')
-        GPIO.output(18, GPIO.LOW) # lock off
     else:
         code = requests.get('https://hsbr-burger.com/checkBoxCode')
         print('response:')
