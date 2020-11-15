@@ -5,10 +5,11 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(3, GPIO.OUT)
-pwm=GPIO.PWM(3, 50)
+pwm3=GPIO.PWM(3, 50)
 GPIO.setup(5, GPIO.OUT)
-pwm=GPIO.PWM(5, 50)
-pwm.start(0)
+pwm5=GPIO.PWM(5, 50)
+pwm3.start(0)
+pwm5.start(0)
 
 while True:
     #
@@ -16,11 +17,13 @@ while True:
     duty = angle / 18 + 2
     GPIO.output(3, True)
     GPIO.output(5, True)
-    pwm.ChangeDutyCycle(duty)
+    pwm3.ChangeDutyCycle(duty)
+    pwm5.ChangeDutyCycle(duty)
     time.sleep(1)
     GPIO.output(3, False)
     GPIO.output(5, False)
-    pwm.ChangeDutyCycle(0)
+    pwm3.ChangeDutyCycle(0)
+    pwm5.ChangeDutyCycle(0)
     #
     time.sleep(3)
     #
@@ -28,9 +31,11 @@ while True:
     duty = angle / 18 + 2
     GPIO.output(3, True)
     GPIO.output(5, True)
-    pwm.ChangeDutyCycle(duty)
+    pwm3.ChangeDutyCycle(duty)
+    pwm5.ChangeDutyCycle(duty)
     time.sleep(1)
     GPIO.output(3, False)
     GPIO.output(5, False)
-    pwm.ChangeDutyCycle(0)
+    pwm3.ChangeDutyCycle(0)
+    pwm5.ChangeDutyCycle(0)
     #
