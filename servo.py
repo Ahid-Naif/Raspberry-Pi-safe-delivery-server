@@ -12,6 +12,6 @@ angle = 0
 duty = angle / 18 + 2
 GPIO.output(3, True)
 pwm.ChangeDutyCycle(duty)
-sleep(1)
+time.sleep(1)
 GPIO.output(3, False)
 pwm.ChangeDutyCycle(0)
