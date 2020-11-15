@@ -19,7 +19,6 @@ while True:
     isBoxOpen = requests.get('https://hsbr-burger.com/isBoxOpen')
     if isBoxOpen.text == '1':
         GPIO.output(18, GPIO.HIGH) # lock on
-        time.sleep(1)
         #
         angle = 90
         duty = angle / 18 + 2
@@ -36,7 +35,6 @@ while True:
         time.sleep(5)
     else:
         GPIO.output(18, GPIO.LOW) # lock off
-        time.sleep(1)
         #
         angle = 0
         duty = angle / 18 + 2
