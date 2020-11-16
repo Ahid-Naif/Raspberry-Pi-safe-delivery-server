@@ -28,37 +28,40 @@ while True:
         print(code.text)
         if readQR[0:6] == str.encode(code.text):
             print("True Code")
-            GPIO.output(18, GPIO.HIGH) # lock on
-            time.sleep(1)
-            #
-            angle = 90
-            duty = angle / 18 + 2
-            GPIO.output(3, True)
-            GPIO.output(5, True)
-            pwm3.ChangeDutyCycle(duty)
-            pwm5.ChangeDutyCycle(duty)
-            time.sleep(1)
-            GPIO.output(3, False)
-            GPIO.output(5, False)
-            pwm3.ChangeDutyCycle(0)
-            pwm5.ChangeDutyCycle(0)
-            #
-            time.sleep(5)
+            _ = requests.get('https://hsbr-burger.com/remote_open_box')
+            # GPIO.output(18, GPIO.HIGH) # lock on
+            # time.sleep(1)
+            # #
+            # angle = 90
+            # duty = angle / 18 + 2
+            # GPIO.output(3, True)
+            # GPIO.output(5, True)
+            # pwm3.ChangeDutyCycle(duty)
+            # pwm5.ChangeDutyCycle(duty)
+            # time.sleep(1)
+            # GPIO.output(3, False)
+            # GPIO.output(5, False)
+            # pwm3.ChangeDutyCycle(0)
+            # pwm5.ChangeDutyCycle(0)
+            # #
+            # time.sleep(5)
         else:
-            print("Wrong Code")
-            GPIO.output(18, GPIO.LOW) # lock off
-            time.sleep(1)
-            #
-            angle = 0
-            duty = angle / 18 + 2
-            GPIO.output(3, True)
-            GPIO.output(5, True)
-            pwm3.ChangeDutyCycle(duty)
-            pwm5.ChangeDutyCycle(duty)
-            time.sleep(1)
-            GPIO.output(3, False)
-            GPIO.output(5, False)
-            pwm3.ChangeDutyCycle(0)
-            pwm5.ChangeDutyCycle(0)
-            #
+            pass
+        # else:
+        #     print("Wrong Code")
+        #     GPIO.output(18, GPIO.LOW) # lock off
+        #     time.sleep(1)
+        #     #
+        #     angle = 0
+        #     duty = angle / 18 + 2
+        #     GPIO.output(3, True)
+        #     GPIO.output(5, True)
+        #     pwm3.ChangeDutyCycle(duty)
+        #     pwm5.ChangeDutyCycle(duty)
+        #     time.sleep(1)
+        #     GPIO.output(3, False)
+        #     GPIO.output(5, False)
+        #     pwm3.ChangeDutyCycle(0)
+        #     pwm5.ChangeDutyCycle(0)
+        #     #
         time.sleep(1)
