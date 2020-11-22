@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False) 
 GPIO.setmode(GPIO.BOARD)   # Use physical pin numbering
-GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW) # GPIO Assign mode
+GPIO.setup(18, GPIO.OUT, initial=GPIO.HIGH) # GPIO Assign mode
 
 GPIO.setup(3, GPIO.OUT)
 pwm3=GPIO.PWM(3, 50)
@@ -18,7 +18,7 @@ while True:
     time.sleep(5)
     isBoxOpen = requests.get('https://hsbr-burger.com/isBoxOpen')
     if isBoxOpen.text == '1':
-        GPIO.output(18, GPIO.HIGH) # lock on
+        GPIO.output(18, GPIO.LOW) # lock on
         #
         angle = 90
         duty = angle / 18 + 2
@@ -34,7 +34,7 @@ while True:
         #
         time.sleep(5)
     else:
-        GPIO.output(18, GPIO.LOW) # lock off
+        GPIO.output(18, GPIO.HIGH) # lock off
         #
         angle = 0
         duty = angle / 18 + 2
